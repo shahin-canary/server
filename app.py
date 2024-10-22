@@ -22,10 +22,11 @@ def hello():
                 </style>
             </head>
             <body>
-                <h1>Hello, Shahin!</h1>
+                <h1>Hello, World!</h1>
             </body>
         </html>
     '''
 
 if __name__ == "__main__":
-    app.run()
+    # Update to listen on the port provided by Render
+    app.run(host="0.0.0.0", port=10000)
