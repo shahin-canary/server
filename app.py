@@ -1,14 +1,16 @@
-from flask import Flask
+ 
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 
 @app.route("/api/storyboard")
 def storyboard():
-    return "shahin here"
+    # Return the data in JSON format
+    return jsonify({"message": "shahin here"})
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)  # Only for local development
- 
+    app.run(host="0.0.0.0", port=10000)
+
 
 
 
