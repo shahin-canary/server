@@ -13,7 +13,7 @@ def encode_image(image_path):
 
 GEN_IMAGE_PATH = 'img.png'
 
-@app.route("/canary/storyboard/api", methods=['GET'])
+@app.route("/canary/storyboard/image/api", methods=['GET'])
 def storyboard():
 
     gen_image_base64 = encode_image(GEN_IMAGE_PATH)   
