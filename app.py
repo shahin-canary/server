@@ -16,9 +16,9 @@ def storyboard():
     image_base64 = encode_image("img.jpg")  # Update with your image path
 
     # Return both the message and the image in Base64 format
-    return jsonify({
-        "message": "shahin here",
-        "generated_image": image_base64
+    return jsonify({ 
+        "generated_image": image_base64,
+        "message": "Shahin here"
     })
 
 if __name__ == "__main__":
