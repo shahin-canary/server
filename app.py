@@ -2,7 +2,7 @@ from flask import Flask
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/api/storyboard")
 def hello():
     return '''
         <html>
@@ -28,5 +28,5 @@ def hello():
     '''
 
 if __name__ == "__main__":
-    # Update to listen on the port provided by Render
-    app.run(host="0.0.0.0", port=10000)
+    app.run(host="0.0.0.0", port=10000)  # Only for local development
+ 
