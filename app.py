@@ -13,7 +13,7 @@ def encode_image(image_path):
 
 GEN_IMAGE_PATH = 'img.png'
 
-@app.route("/api/storyboard", methods=['GET'])
+@app.route("/canary-api/storyboard", methods=['GET'])
 def storyboard():
 
     gen_image_base64 = encode_image(GEN_IMAGE_PATH)   
@@ -22,7 +22,7 @@ def storyboard():
     prompt = "Generate an image of a person on a road."
 
     # Return both the message and the image in Base64 format
-    return jsonify({ 
+    return jsonify({    
         "prompt": prompt,   
         "generated_image": gen_image_base64,   
         "owner": "Shahin",  
