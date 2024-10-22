@@ -1,11 +1,9 @@
- 
 from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-@app.route("/api/storyboard")
+@app.route("/api/storyboard", methods=['GET'])   
 def storyboard():
-    # Return the data in JSON format
     return jsonify({"message": "shahin here"})
 
 if __name__ == "__main__":
