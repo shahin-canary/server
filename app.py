@@ -25,7 +25,7 @@ def storyboard():
     return jsonify({    
         "prompt": prompt,   
         "generated_image": gen_image_base64,   
-        "owner": "Shahin",  
+        # "owner": "Shahin",  
         "date": generated_date,  
         "time": generated_time,  
     })
@@ -33,6 +33,6 @@ def storyboard():
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
 
-## http://127.0.0.1:10000/canary/storyboard/api
-
+## http://127.0.0.1:10000/canary/storyboard/image/api
+## https://server-1-cak2.onrender.com/canary/storyboard/image/api
  
