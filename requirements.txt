@@ -1,13 +1,3 @@
-# Flask
-# gunicorn
-# flask-cors
-# diffusers
-# torch
-# transformers
 Flask
 gunicorn
 flask-cors
-diffusers
-torch
-accelerate
-transformers

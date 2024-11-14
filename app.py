@@ -1,7 +1,7 @@
-# import base64
-# import time   
-# from flask import Flask, jsonify
-# from flask_cors import CORS  
+import base64
+import time   
+from flask import Flask, jsonify
+from flask_cors import CORS  
 
 # app = Flask(__name__)
 # CORS(app) 
@@ -104,46 +104,46 @@
 
 
 from flask import Flask, request, jsonify, send_file
-from diffusers import DiffusionPipeline
-import torch
+# from diffusers import DiffusionPipeline
+# import torch
 import os
 
 app = Flask(__name__)
 
-# Load the pipeline with model weights
-pipe = DiffusionPipeline.from_pretrained(
-    "stabilityai/stable-diffusion-xl-base-1.0",
-    use_safetensors=True
-)
+# # Load the pipeline with model weights
+# pipe = DiffusionPipeline.from_pretrained(
+#     "stabilityai/stable-diffusion-xl-base-1.0",
+#     use_safetensors=True
+# )
 
-# Ensure you're using CPU or GPU correctly
-device = "cuda" if torch.cuda.is_available() else "cpu"
-pipe.to(device)
+# # Ensure you're using CPU or GPU correctly
+# device = "cuda" if torch.cuda.is_available() else "cpu"
+# pipe.to(device)
 
-# Correct path to LoRA weights
-pipe.load_lora_weights("models/charctr_bwy.safetensors")
+# # Correct path to LoRA weights
+# pipe.load_lora_weights("models/charctr_bwy.safetensors")
 
 
 @app.route("/health", methods=["GET"])
 def health():
     return jsonify({"status": "API is running"}), 200
 
-@app.route("/generate", methods=["POST"])
-def generate_image():
-    try:
-        data = request.get_json()
-        prompt = data.get("prompt", "An astronaut riding a green horse")
+# @app.route("/generate", methods=["POST"])
+# def generate_image():
+#     try:
+#         data = request.get_json()
+#         prompt = data.get("prompt", "An astronaut riding a green horse")
 
-        # Generate the image
-        image = pipe(prompt=prompt,
-        num_inference_steps=1,
-        ).images[0]
-        image.save("generated_img.png")
+#         # Generate the image
+#         image = pipe(prompt=prompt,
+#         num_inference_steps=1,
+#         ).images[0]
+#         image.save("generated_img.png")
 
-        # Return the generated image as a response
-        return send_file("generated_img.png", mimetype="image/png"), 200
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+#         # Return the generated image as a response
+#         return send_file("generated_img.png", mimetype="image/png"), 200
+#     except Exception as e:
+#         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
