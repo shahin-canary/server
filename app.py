@@ -114,15 +114,12 @@ app = Flask(__name__)
 pipe = DiffusionPipeline.from_pretrained(
     "stabilityai/stable-diffusion-xl-base-1.0",
     use_safetensors=True
-) 
-# Ensure you're using CPU or GPU correctly
+)  
 device = "cuda" if torch.cuda.is_available() else "cpu"
 pipe.to(device) 
-# Correct path to LoRA weights
-# pipe.load_lora_weights("models/charctr_bwy.safetensors")
-pipe.load_lora_weights("shahin-canary/sks_charctr_bwy")
 
-
+pipe.load_lora_weights("models/charctr_bwy.safetensors") 
+# pipe.load_lora_weights("shahin-canary/sks_charctr_bwy")
 
 @app.route("/health", methods=["GET"])
 def health():
