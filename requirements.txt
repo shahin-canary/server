@@ -3,5 +3,6 @@ diffusers==0.31.0
 accelerate==1.1.1
 transformers==4.46.2
 peft==0.13.2
+pydantic==2.9.2
 uvicorn==0.32.0 
 gunicorn  # Optional, if you want multi-worker support
