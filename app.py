@@ -61,6 +61,12 @@ from fastapi.responses import StreamingResponse
 # Initialize the FastAPI app
 app = FastAPI()
 
+
+@app.get("/health")
+async def health_check():
+    return {"message": "API is running..."}
+
+
 # Pydantic model to define the expected input data structure
 class GenerateRequest(BaseModel):
     prompt: str
