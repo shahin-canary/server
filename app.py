@@ -112,7 +112,7 @@
 
 # if __name__ == "__main__":
 #     port = int(os.environ.get("PORT", 10000))
-#     uvicorn.run(app, host="0.0.0.0", port=port)
+#     uvicorn.run(app, host="127.0.0.1", port=port)
 
 
 
@@ -122,6 +122,7 @@
 import os 
 import torch 
 import base64   
+import uvicorn
 from PIL import Image
 from io import BytesIO  
 from pydantic import BaseModel 
@@ -167,4 +168,5 @@ def generate_image(request: GenerateRequest):
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
-    uvicorn.run(app, host="0.0.0.0", port=port)
+    uvicorn.run(app, host="127.0.0.1", port=port)
+
