@@ -4,4 +4,4 @@ accelerate==1.1.1
 transformers==4.46.2
 peft==0.13.2
 uvicorn==0.32.0 
-gunicorn==20.1.1  # Optional, if you want multi-worker support
+gunicorn  # Optional, if you want multi-worker support
