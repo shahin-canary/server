@@ -3,11 +3,10 @@ services:
     name: fastapi-service
     env: python
     plan: free
-    region: oregon
-    rootDirectory: /opt/render/project  # Now pointing to the root directory where app.py is located
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: uvicorn app:app --host 0.0.0.0 --port 10000  # Entry point is app.py now
+    region: oregon 
+    buildCommand: "pip install -r requirements.txt" 
+    # startCommand: "gunicorn app:app --bind 0.0.0.0:10000"
+    startCommand: uvicorn src.app:app --host 0.0.0.0 --port ~10000  # Use src.app as the entry point 
     autoDeploy: true
-
 
  
